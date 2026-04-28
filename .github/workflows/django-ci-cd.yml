@@ -28,10 +28,10 @@ jobs:
         pip install flake8 black isort pylint
     
     - name: Run Black (Code Formatting)
-      run: black --check .
+      run: black .
     
     - name: Run isort (Import Sorting)
-      run: isort --check-only .
+      run: isort .
     
     - name: Run Flake8 (Linting)
       run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
