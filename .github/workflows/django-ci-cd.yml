@@ -8,7 +8,7 @@ on:
 env:
   PYTHON_VERSION: '3.12.3'
   DJANGO_SETTINGS_MODULE: portfolio.settings
-  PYTHON_FILES: tests.py test_*.py *_tests.py
+  # PYTHON_FILES: tests.py test_*.py *_tests.py
 
 jobs:
 
@@ -104,8 +104,8 @@ jobs:
       run: |
         pytest --cov=. --cov-report=xml --cov-report=html || true
     
-    - name: Run tests
-      run: pytest $PYTHON_FILES     
+    - name: Run test_apps
+      run: pytest tests/     
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v4
