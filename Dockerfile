@@ -4,16 +4,19 @@ FROM python:3.12.3
 # Set the working directory in the container
 WORKDIR /portfolio
 
-# Copy the entire project into the container
-COPY . /portfolio
-
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONPATH=/portfolio
 
+# Copy the entire project into the container
+COPY . /portfolio
+
+
 RUN apt-get update && apt-get install -y build-essential
 RUN pip install --upgrade pip
-RUN pip install gunicorn django
+RUN pip install gunicorn django whitenoise
+
+RUN python manage.py collectstatic --noinput
 
 # Expose port 8000 for the Django development server final
 EXPOSE 8000
