@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y build-essential
 RUN pip install --upgrade pip
 RUN pip install gunicorn django whitenoise
 
-RUN python manage.py collectstatic --noinput
+# RUN python manage.py collectstatic --noinput
 
 # Expose port 8000 for the Django development server final
 EXPOSE 8000
