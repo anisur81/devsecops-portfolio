@@ -22,5 +22,5 @@ RUN pip install gunicorn django whitenoise
 EXPOSE 8000
 
 # Default command to run the Django server
-# CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
 CMD ["gunicorn", "portfolio.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "5"]
