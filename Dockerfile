@@ -9,9 +9,9 @@ COPY . .
 
 RUN pip install gunicorn
 
-# Expose port 8000 for the Django development server
+# Expose port 8000 for the Django development server final
 EXPOSE 8000
 
 # Default command to run the Django server
 # CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
-CMD ["gunicorn", "devsecops-portfolio.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3"]
+CMD ["gunicorn", "devsecops-portfolio.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "5"]
